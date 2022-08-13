@@ -1,7 +1,7 @@
 @import url('./vendor/normalize.css');
 
 #root {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   height: 100vh;
 }
 
@@ -39,4 +39,16 @@
 
 .mb-24 {
   margin-bottom: 24px;
+}
+
+.m-16 {
+  margin: 16px 0;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
 }

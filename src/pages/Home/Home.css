@@ -4,3 +4,10 @@
   text-rendering: optimizeLegibility;
   margin: 0 auto;
 }
+
+.content {
+  max-width: 1048px;
+  display: grid;
+  grid-gap: 24px 24px;
+  grid-template-columns: repeat(2, 1fr);
+}

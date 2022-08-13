@@ -5,9 +5,13 @@
   color: #424242;
 }
 
+.label__search {
+  font-weight: 500;
+}
+
 .label__input {
   box-sizing: border-box;
-  width: 345px;
+  width: 100%;
   height: 50px;
   background: #fff;
   border: 1px solid #c9cacc;

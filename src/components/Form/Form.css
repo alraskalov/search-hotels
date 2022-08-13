@@ -6,14 +6,17 @@
   box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
   border-radius: 16px;
   width: 409px;
-  height: 382px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
+.form__search {
+  width: 360px;
+}
+
 .form__title {
-  margin: 0;
+  margin: 0 0 32px;
   font-weight: 500;
   font-size: 24px;
   line-height: 1.17;
@@ -21,7 +24,8 @@
 }
 
 .form__fieldset {
-  margin: 32px 0 0;
+  width: 100%;
+  margin: 0;
   border: none;
   padding: 0;
   display: flex;
