@@ -5,13 +5,14 @@ interface IInput {
   title: string;
   id: string;
   type: 'email' | 'password';
-  name: string
+  name: string;
+  style?: string;
   children?: ReactNode;
 }
 
-export const Input: FC<IInput> = ({ title, type, id, name, children }) => {
+export const Input: FC<IInput> = ({ title, type, id, name, style }) => {
   return (
-    <label className="label">
+    <label className={`label ${style}`}>
       {title}
       <input className="label__input" id={id} name={name} type={type} />
     </label>
