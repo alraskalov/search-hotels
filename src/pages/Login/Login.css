@@ -1,0 +1,32 @@
+.page__login {
+  margin: 0 auto;
+}
+
+.login {
+  position: relative;
+  background-image: url('../../images/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.login::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.form {
+  display: flex;
+  z-index: 1;
+}
