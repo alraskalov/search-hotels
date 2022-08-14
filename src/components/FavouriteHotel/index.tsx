@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Select } from '../Select';
+import { Select } from '../UI/Select';
 import './FavouriteHotel.css';
 
 interface IFavouriteHotel {

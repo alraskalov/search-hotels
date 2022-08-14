@@ -1,7 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Button } from '../Button';
-import { Form } from '../Form';
-import { Input } from '../Input';
+import { Button, Form, Input } from '../UI';
 import './Search.css';
 
 interface ISearch {
