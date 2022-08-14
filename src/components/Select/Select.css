@@ -1,0 +1,29 @@
+.sort__btn {
+  background: #ffffff;
+  padding: 4px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.408px;
+  color: #99a0a3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.sort__btn:focus {
+  border: 1px solid #41522e;
+  color: #41522e;
+}
+
+.sort__btn:focus .btn__select .select__arrow path {
+  fill: #41522e;
+  fill-opacity: 1;
+}
+
+.sort__btn:not(:last-child) {
+  margin-right: 8px;
+}

@@ -1,7 +1,13 @@
 import { FC } from 'react';
 import './Home.css';
 import { Header } from '../../components/Header/index';
-import { Button, Form, Input } from '../../components';
+import {
+  Button,
+  FavouriteHotel,
+  Form,
+  HotelList,
+  Input,
+} from '../../components';
 
 export const Home: FC = () => {
   return (
@@ -36,6 +42,9 @@ export const Home: FC = () => {
             <Button>Найти</Button>
           </Form>
         </section>
+        <FavouriteHotel>
+          <HotelList />
+        </FavouriteHotel>
       </main>
     </div>
   );

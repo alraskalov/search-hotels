@@ -6,8 +6,18 @@
 }
 
 .content {
+  box-sizing: border-box;
   max-width: 1048px;
+  padding-bottom: 30px;
+  margin: 0 auto;
   display: grid;
   grid-gap: 24px 24px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    'search hotel-list'
+    'favourites hotel-list';
+}
+
+.search {
+  grid-area: search;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }

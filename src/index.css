@@ -2,7 +2,6 @@
 
 #root {
   background-color: #f4f4f4;
-  height: 100vh;
 }
 
 .p-32 {
@@ -15,6 +14,18 @@
 
 .pb-32 {
   padding-bottom: 32px;
+}
+
+.p-16 {
+  padding: 16px 16px;
+}
+
+.pt-16 {
+  padding-top: 16px;
+}
+
+.pb-16 {
+  padding-bottom: 16px;
 }
 
 .m-32 {

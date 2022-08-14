@@ -1,0 +1,136 @@
+.favourites__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 14px 0 0;
+  overflow: auto;
+  height: 288px;
+}
+.favourites__list::-webkit-scrollbar {
+  width: 2px;
+}
+
+.favourites__list::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background-color: #e7e7e7;
+}
+
+.favourites__list::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #41522e;
+}
+
+.item__title {
+  grid-area: title;
+  margin: 0;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.29;
+  letter-spacing: -0.408px;
+  color: #424242;
+  max-width: 210px;
+}
+
+.item__like {
+  grid-area: like;
+  cursor: pointer;
+}
+
+.item__like path {
+  transition: fill 0.3s ease-in-out;
+}
+
+.item__like:active path {
+  fill: #e55858;
+  stroke: none;
+}
+
+.item__like:hover path {
+  fill: #ebebeb;
+}
+
+.favourites__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.favourites__item:not(:last-child) {
+  padding-bottom: 16px;
+}
+
+.favourites__item:last-child .item__line {
+  display: none;
+}
+
+.item__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item__stars {
+  grid-area: stars;
+}
+
+.item__day-start {
+  grid-area: start-day;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+  letter-spacing: -0.408px;
+  color: #878787;
+  margin: 4px 0 2px;
+}
+
+.item__price {
+  grid-area: price;
+  margin: 0;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 2;
+  letter-spacing: -0.408px;
+  color: #878787;
+}
+
+.item__price-span {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.29;
+  letter-spacing: -0.408px;
+  color: #424242;
+  margin-left: 8px;
+}
+
+.item__dash {
+  position: relative;
+  margin: 0 13px 15px;
+}
+
+.item__dash::after {
+  content: '';
+  position: absolute;
+  background: #c4c4c4;
+  border-radius: 2px;
+  width: 9px;
+  height: 1px;
+  top: 6px;
+}
+
+.star:not(:last-child) {
+  margin-right: 3px;
+}
+
+.star_active path {
+  fill: #cdbc1e;
+}
+
+.item__line {
+  height: 1px;
+  background: rgba(135, 135, 135, 0.2);
+  border-radius: 8px;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+  margin-top: 16px;
+}
+
+.btn__select {
+  display: flex;
+  flex-direction: column;
+}
