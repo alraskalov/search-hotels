@@ -16,8 +16,3 @@
     'search hotel-list'
     'favourites hotel-list';
 }
-
-.search {
-  grid-area: search;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-}

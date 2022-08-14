@@ -5,3 +5,4 @@ export * from "./Header";
 export * from "./Select";
 export * from "./FavouriteHotel";
 export * from "./HotelList";
+export * from "./Search";
