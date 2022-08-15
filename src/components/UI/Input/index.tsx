@@ -3,19 +3,36 @@ import './Input.css';
 
 interface IInput {
   title: string;
-  id: string;
-  type: 'email' | 'password' | 'text' | 'date';
-  name: string;
   style?: string;
+  name: string;
   labelStyle?: string;
   children?: ReactNode;
+  register: object;
+  errors: {
+    [key: string]: any;
+  };
 }
 
-export const Input: FC<IInput> = ({ title, type, id, name, style, labelStyle }) => {
+export const Input: FC<IInput> = ({
+  title,
+  style,
+  labelStyle,
+  register,
+  errors,
+  name,
+}) => {
+  console.log(errors);
+
   return (
-    <label className={`label ${style} ${labelStyle ? labelStyle : ''}`}>
-      {title}
-      <input className="label__input" id={id} name={name} type={type} />
-    </label>
+    <>
+      <label className={`label ${errors[name] ? 'label_error' : ''} ${style} ${labelStyle ? labelStyle : ''}`}>
+        {title}
+        <input
+          {...register}
+          className={`label__input ${errors[name] ? 'label__input_error' : ''}`}
+        />
+        {errors[name] && <p className="error">{errors[name]?.message}</p>}
+      </label>
+    </>
   );
 };

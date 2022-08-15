@@ -10,10 +10,20 @@
   font-size: 16px;
   line-height: 1.25;
   padding: 0;
-  cursor: pointer;
+  cursor: default;
 }
 
-.button::after {
+.button_active:hover::after {
+  opacity: 0.6;
+}
+
+.button_active {
+  cursor: pointer;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(104.34deg, #41522e -15.34%, #be8022 145.95%);
+}
+
+.button_active::after {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -30,13 +40,4 @@
     ),
     linear-gradient(104.34deg, #41522e -15.34%, #be8022 145.95%);
   transition: opacity 0.4s linear;
-}
-
-.button:hover::after {
-  opacity: .6;
-}
-
-.button:active {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    linear-gradient(104.34deg, #41522e -15.34%, #be8022 145.95%);
 }

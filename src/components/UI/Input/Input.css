@@ -5,6 +5,10 @@
   color: #424242;
 }
 
+.label_error {
+  color: #EB1717;
+}
+
 .label__search {
   font-weight: 500;
 }
@@ -22,4 +26,16 @@
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
+}
+
+.label__input_error {
+  color: #EB1717;
+}
+
+.error {
+  margin: 7px 0 0;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1.17;
+  color: #eb1717;
 }
