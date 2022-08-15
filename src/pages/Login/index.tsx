@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button, Form, Input } from '../../components';
+import { Button, Form, Input } from '../../components/UI';
 import './Login.css';
 
 export const Login: FC = () => {

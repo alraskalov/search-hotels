@@ -3,6 +3,7 @@ import './Home.css';
 import { Header } from '../../components/Header/index';
 import {
   FavouriteHotel,
+  Hotel,
   HotelList,
   Search,
 } from '../../components';
@@ -14,8 +15,9 @@ export const Home: FC = () => {
       <main className="content">
         <Search />
         <FavouriteHotel>
-          <HotelList />
+          <HotelList isFavourite={true} />
         </FavouriteHotel>
+        <Hotel />
       </main>
     </div>
   );

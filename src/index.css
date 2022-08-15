@@ -1,4 +1,6 @@
 @import url('./vendor/normalize.css');
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 #root {
   background-color: #f4f4f4;
