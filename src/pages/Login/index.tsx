@@ -29,7 +29,9 @@ export const Login: FC = () => {
     <div className="login page__login">
       <Form onSubmit={handleSubmit(onSubmit)} title="Simple Hotel Check">
         <Input
+          type="email"
           register={register('email', {
+            required: 'Логин не может быть пустым',
             pattern: {
               value: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/,
               message: 'Некорректный формат почты',
@@ -41,7 +43,9 @@ export const Login: FC = () => {
           style="mb-24"
         />
         <Input
+          type="password"
           register={register('password', {
+            required: 'Пароль не может быть пустым',
             pattern: {
               value: /^[a-zA-Z0-9]+$/,
               message: 'Пароль может содержать только латинские буквы, цифры',
