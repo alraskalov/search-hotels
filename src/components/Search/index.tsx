@@ -2,6 +2,7 @@ import { FC, ReactNode, useEffect } from 'react';
 import { Button, Form, Input } from '../UI';
 import './Search.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { getHotels } from '../../utils/api';
 
 interface ISearch {
   children?: ReactNode;
@@ -15,11 +16,11 @@ type FormValues = {
 
 export const Search: FC<ISearch> = () => {
   const dateStart = new Date().toLocaleDateString('en-CA');
+
   const {
     register,
     formState: { errors, isValid },
     handleSubmit,
-    reset,
     getValues,
   } = useForm<FormValues>({
     mode: 'onChange',
@@ -30,18 +31,37 @@ export const Search: FC<ISearch> = () => {
     },
   });
 
-  const dayCount = getValues('dayCount');
-  const date = new Date();
-  const futureDate = date.getDate() + Number(dayCount);
-  date.setDate(futureDate);
-  const dateEnd = date.toLocaleDateString('en-CA')
+  const countingDays = (count?: string) => {
+    const dayCount = Number(count) | Number(getValues('dayCount'));
+    const date = new Date();
+    const futureDate = date.getDate() + dayCount;
+    date.setDate(futureDate);
+    const dateEnd = date.toLocaleDateString('en-CA');
+    return dateEnd;
+  };
 
+  useEffect(() => {
+    const [location, dateStart] = getValues(['location', 'dateStart']);
+    const dateEnd = countingDays();
 
+    getHotels(location, dateStart, dateEnd)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    alert(JSON.stringify(data));
-    reset();
+    const { location, dateStart, dayCount } = data;
+    const dateEnd = countingDays(dayCount);
+
+    getHotels(location, dateStart, dateEnd)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
   };
+
   return (
     <section className="search">
       <Form onSubmit={handleSubmit(onSubmit)} formStyle="form__search">
