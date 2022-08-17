@@ -16,10 +16,12 @@ function* workerFetchHotels(action: FetchHotelsRequest): object {
         hotels,
         dateStart,
         dateEnd,
-        location
+        location,
       })
     );
   } catch (e) {
+    console.log(123);
+
     yield put(
       fetchHotelsFailure({
         error: (e as Error).message,

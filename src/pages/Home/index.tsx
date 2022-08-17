@@ -1,9 +1,15 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import './Home.css';
 import { Header } from '../../components/Header/index';
 import { FavoritesHotel, Hotel, HotelList, Search } from '../../components';
+import { useDispatch } from 'react-redux';
+import { loadFavoriteHotel } from '../../redux/actions/userActions';
 
 export const Home: FC = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadFavoriteHotel());
+  }, []);
   return (
     <div className="page">
       <Header styles="p-32" />

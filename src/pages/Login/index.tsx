@@ -3,6 +3,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from '../../components/UI';
 import './Login.css';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/actions/userActions';
 
 type FormValues = {
   email: string;
@@ -11,6 +13,7 @@ type FormValues = {
 
 export const Login: FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -19,8 +22,10 @@ export const Login: FC = () => {
     reset,
   } = useForm<FormValues>({ mode: 'onChange' });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    localStorage.setItem('user', JSON.stringify(data));
+  const onSubmit: SubmitHandler<FormValues> = (data: FormValues) => {
+    const { email } = data;
+    localStorage.setItem('user', data.email);
+    dispatch(setUser({ email }));
     navigate('/');
     reset();
   };

@@ -4,28 +4,15 @@ import { HotelsState, HotelsActions, IHotel } from '../types';
 const initialState: HotelsState = {
   pending: false,
   hotels: [],
-  favoritesHotels: [],
   location: null,
   dateStart: new Date(),
   error: null,
-};
-
-const getListsFromLocalStorage = (): IHotel[] => {
-  if (localStorage.getItem('hotels')) {
-    return JSON.parse(localStorage.getItem('hotels') || '[]');
-  }
-  return [];
-};
-
-const setListsToLocalStorage = (hotels: IHotel[]) => {
-  localStorage.setItem('hotels', JSON.stringify(hotels));
 };
 
 const hotelReducer = (
   state = initialState,
   action: HotelsActions
 ): HotelsState => {
-  const listsFromLocalStorage = getListsFromLocalStorage();
   const hotels: IHotel[] = [];
 
   switch (action.type) {
@@ -41,7 +28,6 @@ const hotelReducer = (
           hotelName: value.hotelName,
           priceAvg: value.priceAvg,
           stars: value.stars,
-          isLiked: false,
           dateStart: action.payload.dateStart,
           dateEnd: action.payload.dateEnd,
         });
@@ -54,6 +40,24 @@ const hotelReducer = (
         dateStart: action.payload.dateStart,
         error: null,
       };
+    // case hotelsTypes.HOTEL_SET_LIKE:
+    //   hotels.push(...listsFromLocalStorage, action.payload.hotel);
+    //   console.log(hotels);
+    //   setListsToLocalStorage(hotels);
+
+    //   return {
+    //     ...state,
+    //     favoritesHotels: hotels,
+    //   };
+    // case hotelsTypes.HOTEL_UNSET_LIKE:
+    //   hotels.push(...listsFromLocalStorage);
+    //   result.push(...hotels.filter(({ hotelId }) => hotelId !== action.payload.hotel.hotelId))
+    //   setListsToLocalStorage(result);
+
+    //   return {
+    //     ...state,
+    //     favoritesHotels: result,
+    //   };
     case hotelsTypes.FETCH_HOTELS_FAILURE:
       return {
         ...state,
@@ -63,6 +67,12 @@ const hotelReducer = (
         dateStart: '',
         error: action.payload.error,
       };
+    // case hotelsTypes.SET_FAVORITE_HOTELS:
+    //   hotels.push(...listsFromLocalStorage);
+    //   return {
+    //     ...state,
+    //     favoritesHotels: hotels,
+    //   };
     default:
       return {
         ...state,
