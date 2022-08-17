@@ -27,16 +27,29 @@ const settings = {
   autoplaySpeed: 2000,
 };
 
-export const Hotel: FC<IHotel> = ({ children }) => {
+const declension = ['отель', 'отеля', 'отелей'];
+
+const num_word = (value: number, words: string[]) => {
+  value = Math.abs(value) % 100;
+  const num = value % 10;
+  if (value > 10 && value < 20) return words[2];
+  if (num > 1 && num < 5) return words[1];
+  if (num == 1) return words[0];
+  return words[2];
+};
+
+export const Hotel: FC<IHotel> = () => {
   const { dateStart, location } = useSelector(
     (state: RootState) => state?.hotel
   );
-  const date =
-    new Date(dateStart).toLocaleDateString('ru', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
+  const favoritesHotel = useSelector(
+    (state: RootState) => state.user.favoritesHotels
+  );
+  const date = new Date(dateStart).toLocaleDateString('ru', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 
   return (
     <section className="hotel">
@@ -83,8 +96,9 @@ export const Hotel: FC<IHotel> = ({ children }) => {
       </Carousel>
       <div className="hotel__list list">
         <h3 className="list__title">
-          Добавлено в Избранное:<span>3</span>
-          отеля
+          Добавлено в Избранное:
+          <span>{favoritesHotel.length}</span>
+          {num_word(favoritesHotel.length, declension)}
         </h3>
         <HotelList isFavorites={false} />
       </div>
