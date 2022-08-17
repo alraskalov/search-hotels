@@ -92,6 +92,10 @@ export const Search: FC<ISearch> = () => {
         <Input
           register={register('dayCount', {
             required: 'Поле не может быть пустым',
+            pattern: {
+              value: /^\d+$/,
+              message: 'Введите число',
+            },
           })}
           errors={errors}
           title="Количество дней"
