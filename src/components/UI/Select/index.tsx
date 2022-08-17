@@ -1,17 +1,27 @@
-import { FC, ReactNode } from 'react';
+import { ReactNode, FC, MouseEvent } from 'react';
 import './Select.css';
 
 interface ISelect {
   children: ReactNode;
+  btnValue: string;
+  filter: boolean;
+  onSelectClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Select: FC<ISelect> = ({ children }) => {
+export const Select: FC<ISelect> = ({
+  children,
+  onSelectClick,
+  btnValue,
+  filter,
+}) => {
+  console.log(filter);
+
   return (
-    <button className="sort__btn btn">
+    <button onClick={onSelectClick} value={btnValue} className="sort__btn btn">
       {children}
       <div className="btn__select select">
         <svg
-          className="select__arrow"
+          className={`select__arrow ${filter ? '' : 'select__arrow_desc'}`}
           width="9"
           height="6"
           fill="none"
@@ -24,7 +34,7 @@ export const Select: FC<ISelect> = ({ children }) => {
           />
         </svg>
         <svg
-          className="select__arrow"
+          className={`select__arrow ${filter ? 'select__arrow_asc' : ''}`}
           width="9"
           height="7"
           viewBox="0 0 9 7"

@@ -19,7 +19,12 @@
   color: #41522e;
 }
 
-.sort__btn:focus .btn__select .select__arrow path {
+.sort__btn:focus .btn__select .select__arrow_desc path {
+  fill: #41522e;
+  fill-opacity: 1;
+}
+
+.sort__btn:focus .btn__select .select__arrow_asc path {
   fill: #41522e;
   fill-opacity: 1;
 }

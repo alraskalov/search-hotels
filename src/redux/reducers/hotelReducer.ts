@@ -1,6 +1,6 @@
-import { HotelsActions } from './../actions/hotelActions/types';
 import { hotelsTypes } from '../constants';
 import { HotelsState, IHotel } from '../stateTypes';
+import { HotelsActions } from '../actions/hotelActions/types';
 
 const initialState: HotelsState = {
   pending: false,

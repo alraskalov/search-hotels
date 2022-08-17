@@ -19,4 +19,5 @@ export interface HotelsState {
 export interface UserState {
   email: string;
   favoritesHotels: IHotel[];
+  appliedFilter: any[];
 }

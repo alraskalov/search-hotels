@@ -13,11 +13,6 @@ export interface FetchHotelsRequest {
   payload: FetchHotelsRequestPayload;
 }
 
-export type FetchHotelsSuccess = {
-  type: typeof hotelsTypes.FETCH_HOTELS_SUCCESS;
-  payload: FetchHotelsSuccessPayload;
-};
-
 export interface FetchHotelsSuccessPayload {
   hotels: IHotel[];
   dateStart: string;
@@ -25,6 +20,11 @@ export interface FetchHotelsSuccessPayload {
   location: string;
   dayCount: string;
 }
+
+export type FetchHotelsSuccess = {
+  type: typeof hotelsTypes.FETCH_HOTELS_SUCCESS;
+  payload: FetchHotelsSuccessPayload;
+};
 
 export interface FetchHotelsFailurePayload {
   error: string;

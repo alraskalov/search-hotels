@@ -36,9 +36,29 @@ export type UserLogout = {
   type: typeof userTypes.USER_LOGOUT;
 };
 
+export interface FilterByStarsPayload {
+  type: boolean;
+}
+
+export type FilterByStars = {
+  type: typeof userTypes.FILTER_BY_STARS;
+  payload: FilterByStarsPayload;
+};
+
+export interface FilterByPricePayload {
+  type: boolean;
+}
+
+export type FilterByPrice = {
+  type: typeof userTypes.FILTER_BY_PRICE;
+  payload: FilterByPricePayload;
+};
+
 export type UserActions =
   | LoadFavoriteHotels
   | SetFavoriteHotels
   | UnsetFavoriteHotels
   | SetUser
-  | UserLogout;
+  | UserLogout
+  | FilterByPrice
+  | FilterByStars;

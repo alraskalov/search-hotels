@@ -7,6 +7,10 @@ import {
   SetUserPayload,
   SetUser,
   UserLogout,
+  FilterByStarsPayload,
+  FilterByStars,
+  FilterByPricePayload,
+  FilterByPrice,
 } from './types';
 import { userTypes } from '../../constants';
 
@@ -35,4 +39,18 @@ export const setUser = (payload: SetUserPayload): SetUser => ({
 
 export const userLogout = (): UserLogout => ({
   type: userTypes.USER_LOGOUT,
+});
+
+export const filterByStars = (
+  payload: FilterByStarsPayload
+): FilterByStars => ({
+  type: userTypes.FILTER_BY_STARS,
+  payload,
+});
+
+export const filterByPrice = (
+  payload: FilterByPricePayload
+): FilterByPrice => ({
+  type: userTypes.FILTER_BY_PRICE,
+  payload,
 });
