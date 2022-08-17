@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import './Header.css';
-import { userLogout } from '../../redux/actions/userActions';
+import { userLogout } from '../../redux/actions/userActions/userActions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 

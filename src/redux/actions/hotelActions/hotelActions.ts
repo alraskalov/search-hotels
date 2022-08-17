@@ -1,4 +1,4 @@
-import { hotelsTypes } from '../constants';
+import { hotelsTypes } from '../../constants';
 import {
   FetchHotelsRequest,
   FetchHotelsFailure,
@@ -6,8 +6,7 @@ import {
   FetchHotelsSuccessPayload,
   FetchHotelsFailurePayload,
   FetchHotelsRequestPayload,
-
-} from '../types';
+} from './types';
 
 export const fetchHotelsRequest = (
   payload: FetchHotelsRequestPayload
@@ -29,5 +28,3 @@ export const fetchHotelsFailure = (
   type: hotelsTypes.FETCH_HOTELS_FAILURE,
   payload,
 });
-
-

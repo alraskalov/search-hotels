@@ -3,7 +3,7 @@ import { Button, Form, Input } from '../UI';
 import './Search.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { fetchHotelsRequest } from '../../redux/actions/hotelActions';
+import { fetchHotelsRequest } from '../../redux/actions/hotelActions/hotelActions';
 
 interface ISearch {
   children?: ReactNode;

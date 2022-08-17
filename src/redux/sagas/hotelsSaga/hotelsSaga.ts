@@ -1,11 +1,11 @@
+import { FetchHotelsRequest } from './../../actions/hotelActions/types';
 import { getHotels } from './../../../utils/api';
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 import { hotelsTypes } from '../../constants';
-import { FetchHotelsRequest } from '../../types';
 import {
   fetchHotelsFailure,
   fetchHotelsSuccess,
-} from '../../actions/hotelActions';
+} from '../../actions/hotelActions/hotelActions';
 
 function* workerFetchHotels(action: FetchHotelsRequest): object {
   try {

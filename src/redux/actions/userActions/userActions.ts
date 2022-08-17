@@ -7,8 +7,8 @@ import {
   SetUserPayload,
   SetUser,
   UserLogout,
-} from '../types';
-import { userTypes } from '../constants';
+} from './types';
+import { userTypes } from '../../constants';
 
 export const setFavoriteHotel = (
   payload: SetFavoriteHotelsPayload

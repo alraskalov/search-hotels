@@ -3,7 +3,7 @@ import './Home.css';
 import { Header } from '../../components/Header/index';
 import { FavoritesHotel, Hotel, HotelList, Search } from '../../components';
 import { useDispatch } from 'react-redux';
-import { loadFavoriteHotel } from '../../redux/actions/userActions';
+import { loadFavoriteHotel } from '../../redux/actions/userActions/userActions';
 
 export const Home: FC = () => {
   const dispatch = useDispatch();

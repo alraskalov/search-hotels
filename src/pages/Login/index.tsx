@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form, Input } from '../../components/UI';
 import './Login.css';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../redux/actions/userActions';
+import { setUser } from '../../redux/actions/userActions/userActions';
 
 type FormValues = {
   email: string;

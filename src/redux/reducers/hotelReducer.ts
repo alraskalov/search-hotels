@@ -1,5 +1,6 @@
+import { HotelsActions } from './../actions/hotelActions/types';
 import { hotelsTypes } from '../constants';
-import { HotelsState, HotelsActions, IHotel } from '../types';
+import { HotelsState, IHotel } from '../stateTypes';
 
 const initialState: HotelsState = {
   pending: false,
@@ -40,24 +41,6 @@ const hotelReducer = (
         dateStart: action.payload.dateStart,
         error: null,
       };
-    // case hotelsTypes.HOTEL_SET_LIKE:
-    //   hotels.push(...listsFromLocalStorage, action.payload.hotel);
-    //   console.log(hotels);
-    //   setListsToLocalStorage(hotels);
-
-    //   return {
-    //     ...state,
-    //     favoritesHotels: hotels,
-    //   };
-    // case hotelsTypes.HOTEL_UNSET_LIKE:
-    //   hotels.push(...listsFromLocalStorage);
-    //   result.push(...hotels.filter(({ hotelId }) => hotelId !== action.payload.hotel.hotelId))
-    //   setListsToLocalStorage(result);
-
-    //   return {
-    //     ...state,
-    //     favoritesHotels: result,
-    //   };
     case hotelsTypes.FETCH_HOTELS_FAILURE:
       return {
         ...state,
@@ -67,12 +50,6 @@ const hotelReducer = (
         dateStart: '',
         error: action.payload.error,
       };
-    // case hotelsTypes.SET_FAVORITE_HOTELS:
-    //   hotels.push(...listsFromLocalStorage);
-    //   return {
-    //     ...state,
-    //     favoritesHotels: hotels,
-    //   };
     default:
       return {
         ...state,

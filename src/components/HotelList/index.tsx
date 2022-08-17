@@ -3,11 +3,11 @@ import './HotelList.css';
 import house from '../../images/house.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
-import { IHotel } from '../../redux/types';
+import { IHotel } from '../../redux/stateTypes';
 import {
   setFavoriteHotel,
   unsetFavoriteHotel,
-} from '../../redux/actions/userActions';
+} from '../../redux/actions/userActions/userActions';
 
 interface IHotelList {
   children?: ReactNode;

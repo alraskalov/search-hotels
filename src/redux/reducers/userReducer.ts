@@ -1,5 +1,6 @@
+import { UserActions } from './../actions/userActions/types';
 import { userTypes } from '../constants';
-import { UserState, UserActions, IHotel } from '../types';
+import { UserState, IHotel } from '../stateTypes';
 
 const initialState: UserState = {
   email: '',
