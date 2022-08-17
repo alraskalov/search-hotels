@@ -2,7 +2,8 @@ import { FC, ReactNode, useEffect } from 'react';
 import { Button, Form, Input } from '../UI';
 import './Search.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { getHotels } from '../../utils/api';
+import { useDispatch } from 'react-redux';
+import { fetchHotelsRequest } from '../../redux/actions/hotelActions';
 
 interface ISearch {
   children?: ReactNode;
@@ -16,6 +17,7 @@ type FormValues = {
 
 export const Search: FC<ISearch> = () => {
   const dateStart = new Date().toLocaleDateString('en-CA');
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -32,11 +34,15 @@ export const Search: FC<ISearch> = () => {
   });
 
   const countingDays = (count?: string) => {
-    const dayCount = Number(count) | Number(getValues('dayCount'));
-    const date = new Date();
-    const futureDate = date.getDate() + dayCount;
+    const [dateStart, dayCount] = getValues(['dateStart', 'dayCount']);
+
+    const selectedDayСount = Number(count) | Number(dayCount);
+    const date = new Date(dateStart);
+    const futureDate = date.getDate() + selectedDayСount;
+
     date.setDate(futureDate);
     const dateEnd = date.toLocaleDateString('en-CA');
+
     return dateEnd;
   };
 
@@ -44,22 +50,14 @@ export const Search: FC<ISearch> = () => {
     const [location, dateStart] = getValues(['location', 'dateStart']);
     const dateEnd = countingDays();
 
-    getHotels(location, dateStart, dateEnd)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    dispatch(fetchHotelsRequest({ location, dateStart, dateEnd }));
   }, []);
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const { location, dateStart, dayCount } = data;
     const dateEnd = countingDays(dayCount);
 
-    getHotels(location, dateStart, dateEnd)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    dispatch(fetchHotelsRequest({ location, dateStart, dateEnd }));
   };
 
   return (
@@ -79,6 +77,10 @@ export const Search: FC<ISearch> = () => {
         <Input
           register={register('dateStart', {
             required: 'Поле не может быть пустым',
+            min: {
+              value: new Date().toLocaleDateString('en-Ca'),
+              message: 'Дата не может быть меньшей текущей',
+            },
           })}
           errors={errors}
           title="Дата заселения"

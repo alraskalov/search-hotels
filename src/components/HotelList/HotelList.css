@@ -28,6 +28,9 @@
   letter-spacing: -0.408px;
   color: #424242;
   max-width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .item__like {
@@ -36,10 +39,10 @@
 }
 
 .item__like path {
-  transition: fill 0.3s ease-in-out;
+  transition: fill 0.5s ease-in-out;
 }
 
-.item__like:active path {
+.item__like_active path {
   fill: #e55858;
   stroke: none;
 }
@@ -97,7 +100,7 @@
 
 .item__dash {
   position: relative;
-  margin: 0 13px 15px;
+  margin: 0 15px;
 }
 
 .item__dash::after {
@@ -107,7 +110,8 @@
   border-radius: 2px;
   width: 9px;
   height: 1px;
-  top: 6px;
+  top: 7px;
+  left: -4px;
 }
 
 .star:not(:last-child) {

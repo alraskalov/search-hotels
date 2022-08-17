@@ -8,6 +8,8 @@ import hotel3 from '../../images/hotel-3.jpg';
 import hotel4 from '../../images/hotel-4.jpg';
 import hotel5 from '../../images/hotel-5.jpg';
 import { HotelList } from '../HotelList';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/reducers/rootReducer';
 
 interface IHotel {
   children?: ReactNode;
@@ -26,29 +28,41 @@ const settings = {
 };
 
 export const Hotel: FC<IHotel> = ({ children }) => {
+  const { dateStart, location } = useSelector(
+    (state: RootState) => state?.hotel
+  );
+  const date =
+    new Date(dateStart).toLocaleDateString('ru', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
+
   return (
     <section className="hotel">
       <div className="hotel__info">
         <h2 className="hotel__city">
           Отели
-          <svg
-            className="arrow"
-            width="11"
-            height="20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 1.333 9.667 10 1 18.667"
-              stroke="#A7A7A7"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          Москва
+          {location && (
+            <svg
+              className="arrow"
+              width="11"
+              height="20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1.333 9.667 10 1 18.667"
+                stroke="#A7A7A7"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+          {location}
         </h2>
-        <p className="hotel__start-date">07 июля 2020</p>
+        <p className="hotel__start-date">{date != 'Invalid Date' && date}</p>
       </div>
       <Carousel settings={settings}>
         <div className="slider__item">
