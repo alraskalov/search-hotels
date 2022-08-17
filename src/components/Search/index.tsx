@@ -47,17 +47,17 @@ export const Search: FC<ISearch> = () => {
   };
 
   useEffect(() => {
-    const [location, dateStart] = getValues(['location', 'dateStart']);
+    const [location, dateStart, dayCount] = getValues(['location', 'dateStart', 'dayCount']);
     const dateEnd = countingDays();
 
-    dispatch(fetchHotelsRequest({ location, dateStart, dateEnd }));
+    dispatch(fetchHotelsRequest({ location, dateStart, dateEnd, dayCount }));
   }, []);
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     const { location, dateStart, dayCount } = data;
     const dateEnd = countingDays(dayCount);
 
-    dispatch(fetchHotelsRequest({ location, dateStart, dateEnd }));
+    dispatch(fetchHotelsRequest({ location, dateStart, dateEnd, dayCount }));
   };
 
   return (

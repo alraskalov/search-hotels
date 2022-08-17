@@ -31,6 +31,7 @@ const hotelReducer = (
           stars: value.stars,
           dateStart: action.payload.dateStart,
           dateEnd: action.payload.dateEnd,
+          dayCount: action.payload.dayCount,
         });
       }
       return {

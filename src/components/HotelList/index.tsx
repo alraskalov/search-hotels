@@ -4,7 +4,7 @@ import house from '../../images/house.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
 import { IHotel } from '../../redux/stateTypes';
-import { dateFormatting } from '../../utils/utils';
+import { dateFormatting, num_word } from '../../utils/utils';
 import {
   setFavoriteHotel,
   unsetFavoriteHotel,
@@ -14,6 +14,7 @@ interface IHotelList {
   children?: ReactNode;
   isFavorites: boolean;
 }
+const declension = [' день', ' дня', ' дней'];
 
 export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
   const hotels = useSelector((state: RootState) => state?.hotel?.hotels || []);
@@ -79,7 +80,8 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
                 <p className="item__day-start">
                   {dateFormatting(hotel.dateStart)}
                   <span className="item__dash"></span>
-                  {dateFormatting(hotel.dateEnd)}
+                  {hotel.dayCount}
+                  {num_word(Number(hotel.dayCount), declension)}
                 </p>
                 <div className="item__container">
                   <div className="item__stars">
@@ -148,7 +150,8 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
                   <p className="item__day-start">
                     {dateFormatting(hotel.dateStart)}
                     <span className="item__dash"></span>
-                    {dateFormatting(hotel.dateEnd)}
+                    {hotel.dayCount}
+                    {num_word(Number(hotel.dayCount), declension)}
                   </p>
                   <div className="item__container">
                     <div className="item__stars">

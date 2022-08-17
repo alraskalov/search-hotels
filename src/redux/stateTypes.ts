@@ -5,6 +5,7 @@ export interface IHotel {
   stars: number;
   dateStart: string;
   dateEnd: string;
+  dayCount: string;
 }
 
 export interface HotelsState {
@@ -19,5 +20,3 @@ export interface UserState {
   email: string;
   favoritesHotels: IHotel[];
 }
-
-

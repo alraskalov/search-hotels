@@ -9,7 +9,7 @@ import {
 
 function* workerFetchHotels(action: FetchHotelsRequest): object {
   try {
-    const { location, dateStart, dateEnd } = action.payload;
+    const { location, dateStart, dateEnd, dayCount } = action.payload;
     const hotels = yield call(getHotels, location, dateStart, dateEnd);
     yield put(
       fetchHotelsSuccess({
@@ -17,6 +17,7 @@ function* workerFetchHotels(action: FetchHotelsRequest): object {
         dateStart,
         dateEnd,
         location,
+        dayCount,
       })
     );
   } catch (e) {

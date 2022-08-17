@@ -5,6 +5,7 @@ export interface FetchHotelsRequestPayload {
   location: string;
   dateStart: string;
   dateEnd: string;
+  dayCount: string;
 }
 
 export interface FetchHotelsRequest {
@@ -22,6 +23,7 @@ export interface FetchHotelsSuccessPayload {
   dateStart: string;
   dateEnd: string;
   location: string;
+  dayCount: string;
 }
 
 export interface FetchHotelsFailurePayload {
