@@ -38,6 +38,14 @@
   cursor: pointer;
 }
 
+.favorites__list_empty {
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.17;
+  color: #424242;
+}
+
 .item__like path {
   transition: fill 0.5s ease-in-out;
 }

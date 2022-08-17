@@ -14,7 +14,7 @@ interface IHotelList {
   children?: ReactNode;
   isFavorites: boolean;
 }
-const declension = [' день', ' дня', ' дней'];
+const declension = ['день', 'дня', 'дней'];
 
 export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
   const hotels = useSelector((state: RootState) => state?.hotel?.hotels || []);
@@ -45,7 +45,7 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
   };
   return (
     <ul className={`favorites__list ${isFavorites ? '' : 'list'}`}>
-      {!isFavorites && hotels.length === 0 && <p>Ничего не найдо</p>}
+      {!isFavorites && hotels.length === 0 && <p className='favorites__list_empty'>Ничего не найдо</p>}
       {(!isFavorites &&
         hotels.map((hotel) => (
           <li key={hotel.hotelId} className="favorites__item item">
@@ -80,8 +80,7 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
                 <p className="item__day-start">
                   {dateFormatting(hotel.dateStart)}
                   <span className="item__dash"></span>
-                  {hotel.dayCount}
-                  {num_word(Number(hotel.dayCount), declension)}
+                  {`${hotel.dayCount} ${num_word(Number(hotel.dayCount), declension)}`}
                 </p>
                 <div className="item__container">
                   <div className="item__stars">
@@ -150,8 +149,7 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
                   <p className="item__day-start">
                     {dateFormatting(hotel.dateStart)}
                     <span className="item__dash"></span>
-                    {hotel.dayCount}
-                    {num_word(Number(hotel.dayCount), declension)}
+                    {`${hotel.dayCount} ${num_word(Number(hotel.dayCount), declension)}`}
                   </p>
                   <div className="item__container">
                     <div className="item__stars">
@@ -189,7 +187,7 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
 
               <div className="item__line"></div>
             </li>
-          ))) || <p>Список пуст</p>}
+          ))) || <p className='favorites__list_empty'>Список пуст</p>}
     </ul>
   );
 };

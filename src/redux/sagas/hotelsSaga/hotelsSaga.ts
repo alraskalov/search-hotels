@@ -21,8 +21,6 @@ function* workerFetchHotels(action: FetchHotelsRequest): object {
       })
     );
   } catch (e) {
-    console.log(123);
-
     yield put(
       fetchHotelsFailure({
         error: (e as Error).message,
