@@ -1,5 +1,3 @@
-import { hotelsTypes, userTypes } from './constants';
-
 export interface IHotel {
   hotelId: number | null;
   hotelName: string | null;
