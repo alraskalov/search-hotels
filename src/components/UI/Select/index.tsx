@@ -14,8 +14,6 @@ export const Select: FC<ISelect> = ({
   btnValue,
   filter,
 }) => {
-  console.log(filter);
-
   return (
     <button onClick={onSelectClick} value={btnValue} className="sort__btn btn">
       {children}

@@ -116,20 +116,15 @@ const userReducer = (state = initialState, action: UserActions): UserState => {
           : sortDesc(state.favoritesHotels, 'price'))
       );
       state.favoritesHotels = sortedArr;
-      console.log(state.favoritesHotels);
-      console.log(sortedArr);
       state.appliedFilter = addFilterIfNotExists(
         userTypes.FILTER_BY_STARS,
         state.appliedFilter
       );
-      console.log(state.appliedFilter);
 
       state.appliedFilter = removeFilter(
         userTypes.FILTER_BY_PRICE,
         state.appliedFilter
       );
-
-      console.log(state.appliedFilter);
 
       return state;
     case userTypes.FILTER_BY_STARS:
@@ -139,20 +134,14 @@ const userReducer = (state = initialState, action: UserActions): UserState => {
           : sortDesc(state.favoritesHotels, 'stars'))
       );
       state.favoritesHotels = sortedArr;
-      console.log(state.favoritesHotels);
-      console.log(sortedArr);
       state.appliedFilter = addFilterIfNotExists(
         userTypes.FILTER_BY_STARS,
         state.appliedFilter
       );
-      console.log(state.appliedFilter);
-
       state.appliedFilter = removeFilter(
         userTypes.FILTER_BY_STARS,
         state.appliedFilter
       );
-
-      console.log(state.appliedFilter);
 
       return state;
     case userTypes.USER_LOGOUT:
