@@ -90,8 +90,13 @@ export type SetUser = {
   payload: SetUserPayload;
 };
 
+export type UserLogout = {
+  type: typeof userTypes.USER_LOGOUT;
+};
+
 export type UserActions =
   | LoadFavoriteHotels
   | SetFavoriteHotels
   | UnsetFavoriteHotels
-  | SetUser;
+  | SetUser
+  | UserLogout;

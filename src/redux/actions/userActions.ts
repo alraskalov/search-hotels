@@ -6,6 +6,7 @@ import {
   UnsetFavoriteHotels,
   SetUserPayload,
   SetUser,
+  UserLogout,
 } from '../types';
 import { userTypes } from '../constants';
 
@@ -30,4 +31,8 @@ export const loadFavoriteHotel = (): LoadFavoriteHotels => ({
 export const setUser = (payload: SetUserPayload): SetUser => ({
   type: userTypes.SET_USER,
   payload,
+});
+
+export const userLogout = (): UserLogout => ({
+  type: userTypes.USER_LOGOUT,
 });

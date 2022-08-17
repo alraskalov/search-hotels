@@ -53,6 +53,11 @@ const userReducer = (state = initialState, action: UserActions): UserState => {
         ...state,
         favoritesHotels: result,
       };
+    case userTypes.USER_LOGOUT:
+      return {
+        email: '',
+        favoritesHotels: [],
+      };
     default:
       return {
         ...state,
