@@ -6,10 +6,10 @@ import { RootState } from '../../redux/reducers/rootReducer';
 
 interface IHotelList {
   children?: ReactNode;
-  isFavourite: boolean;
+  isFavorites: boolean;
 }
 
-export const HotelList: FC<IHotelList> = ({ isFavourite }) => {
+export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
   const hotels = useSelector((state: RootState) => state?.hotel?.hotels || []);
 
   const renderStars = (stars: number) => {
@@ -33,9 +33,9 @@ export const HotelList: FC<IHotelList> = ({ isFavourite }) => {
   };
 
   return (
-    <ul className={`favourites__list ${isFavourite ? '' : 'list'}`}>
-      {!isFavourite && hotels.length === 0 && <p>Ничего не найдо</p>}
-      {!isFavourite &&
+    <ul className={`favorites__list ${isFavorites ? '' : 'list'}`}>
+      {!isFavorites && hotels.length === 0 && <p>Ничего не найдо</p>}
+      {!isFavorites &&
         hotels.map(
           ({
             hotelId,
@@ -46,9 +46,9 @@ export const HotelList: FC<IHotelList> = ({ isFavourite }) => {
             dateStart,
             dateEnd,
           }) => (
-            <li key={hotelId} className="favourites__item item">
+            <li key={hotelId} className="favorites__item item">
               <div className="item__wrapper wrapper">
-                {!isFavourite && <img src={house} alt="" />}
+                {!isFavorites && <img src={house} alt="" />}
                 <div className="wrapper__container">
                   <div className="item__container">
                     <h3 className="item__title">{hotelName}</h3>

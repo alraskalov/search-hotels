@@ -1,20 +1,20 @@
-.favourites__list {
+.favorites__list {
   list-style-type: none;
   margin: 0;
   padding: 0 14px 0 0;
   overflow: auto;
   height: 288px;
 }
-.favourites__list::-webkit-scrollbar {
+.favorites__list::-webkit-scrollbar {
   width: 2px;
 }
 
-.favourites__list::-webkit-scrollbar-track {
+.favorites__list::-webkit-scrollbar-track {
   border-radius: 2px;
   background-color: #e7e7e7;
 }
 
-.favourites__list::-webkit-scrollbar-thumb {
+.favorites__list::-webkit-scrollbar-thumb {
   border-radius: 2px;
   background-color: #41522e;
 }
@@ -51,12 +51,12 @@
   fill: #ebebeb;
 }
 
-.favourites__item {
+.favorites__item {
   display: flex;
   flex-direction: column;
 }
 
-.favourites__item:last-child .item__line {
+.favorites__item:last-child .item__line {
   display: none;
 }
 

@@ -86,7 +86,7 @@ export const Hotel: FC<IHotel> = ({ children }) => {
           Добавлено в Избранное:<span>3</span>
           отеля
         </h3>
-        <HotelList isFavourite={false} />
+        <HotelList isFavorites={false} />
       </div>
     </section>
   );

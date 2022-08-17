@@ -1,13 +1,13 @@
-.favourites {
-  grid-area: favourites;
+.favorites {
+  grid-area: favorites;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
-.favourites__sort {
+.favorites__sort {
   display: flex;
 }
 
-.favourites__container {
+.favorites__container {
   box-sizing: border-box;
   padding: 32px;
   width: 360px;
@@ -17,7 +17,7 @@
   border-radius: 16px;
 }
 
-.favourites__title {
+.favorites__title {
   margin: 0;
   font-weight: 500;
   font-size: 24px;

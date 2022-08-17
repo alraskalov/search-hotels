@@ -1,12 +1,7 @@
 import { FC } from 'react';
 import './Home.css';
 import { Header } from '../../components/Header/index';
-import {
-  FavouriteHotel,
-  Hotel,
-  HotelList,
-  Search,
-} from '../../components';
+import { FavoritesHotel, Hotel, HotelList, Search } from '../../components';
 
 export const Home: FC = () => {
   return (
@@ -14,9 +9,9 @@ export const Home: FC = () => {
       <Header styles="p-32" />
       <main className="content">
         <Search />
-        <FavouriteHotel>
-          <HotelList isFavourite={true} />
-        </FavouriteHotel>
+        <FavoritesHotel>
+          <HotelList isFavorites={true} />
+        </FavoritesHotel>
         <Hotel />
       </main>
     </div>

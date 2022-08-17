@@ -13,6 +13,7 @@ export interface IHotel {
 export interface HotelsState {
   pending: boolean;
   hotels: IHotel[];
+  favoritesHotels: IHotel[];
   location: string | null;
   dateStart: string | Date;
   error: string | null;

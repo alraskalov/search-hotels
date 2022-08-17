@@ -14,5 +14,5 @@
   grid-gap: 24px 24px;
   grid-template-areas:
     'search hotel-list'
-    'favourites hotel-list';
+    'favorites hotel-list';
 }
