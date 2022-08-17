@@ -10,6 +10,7 @@ import hotel5 from '../../images/hotel-5.jpg';
 import { HotelList } from '../HotelList';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
+import { num_word, dateFormatting } from '../../utils/utils';
 
 interface IHotel {
   children?: ReactNode;
@@ -29,15 +30,6 @@ const settings = {
 
 const declension = ['отель', 'отеля', 'отелей'];
 
-const num_word = (value: number, words: string[]) => {
-  value = Math.abs(value) % 100;
-  const num = value % 10;
-  if (value > 10 && value < 20) return words[2];
-  if (num > 1 && num < 5) return words[1];
-  if (num == 1) return words[0];
-  return words[2];
-};
-
 export const Hotel: FC<IHotel> = () => {
   const { dateStart, location } = useSelector(
     (state: RootState) => state?.hotel
@@ -45,11 +37,7 @@ export const Hotel: FC<IHotel> = () => {
   const favoritesHotel = useSelector(
     (state: RootState) => state.user.favoritesHotels
   );
-  const date = new Date(dateStart).toLocaleDateString('ru', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  const date = dateFormatting(dateStart);
 
   return (
     <section className="hotel">

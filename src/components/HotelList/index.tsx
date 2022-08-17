@@ -4,6 +4,7 @@ import house from '../../images/house.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
 import { IHotel } from '../../redux/stateTypes';
+import { dateFormatting } from '../../utils/utils';
 import {
   setFavoriteHotel,
   unsetFavoriteHotel,
@@ -30,14 +31,6 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
       }
     }
     return arrayStars;
-  };
-
-  const dateFormatting = (date: string) => {
-    return new Date(date).toLocaleDateString('ru', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
   };
 
   const handleLikeClick = (hotel: IHotel) => {
