@@ -18,6 +18,7 @@ const declension = ['день', 'дня', 'дней'];
 
 export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
   const hotels = useSelector((state: RootState) => state?.hotel?.hotels || []);
+  const pending = useSelector((state: RootState) => state?.hotel?.pending);
   const favoritesHotels = useSelector(
     (state: RootState) => state?.user?.favoritesHotels || []
   );
@@ -45,7 +46,10 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
   };
   return (
     <ul className={`favorites__list ${isFavorites ? '' : 'list'}`}>
-      {!isFavorites && hotels.length === 0 && <p className='favorites__list_empty'>Ничего не найдо</p>}
+      {!isFavorites && hotels.length === 0 && !pending && (
+        <p className="favorites__list_empty">Ничего не найдо</p>
+      )}
+      {!isFavorites && pending && <p className="favorites__list_empty">Идет загрузка</p>}
       {(!isFavorites &&
         hotels.map((hotel) => (
           <li key={hotel.hotelId} className="favorites__item item">
@@ -80,7 +84,10 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
                 <p className="item__day-start">
                   {dateFormatting(hotel.dateStart)}
                   <span className="item__dash"></span>
-                  {`${hotel.dayCount} ${num_word(Number(hotel.dayCount), declension)}`}
+                  {`${hotel.dayCount} ${num_word(
+                    Number(hotel.dayCount),
+                    declension
+                  )}`}
                 </p>
                 <div className="item__container">
                   <div className="item__stars">
@@ -149,7 +156,10 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
                   <p className="item__day-start">
                     {dateFormatting(hotel.dateStart)}
                     <span className="item__dash"></span>
-                    {`${hotel.dayCount} ${num_word(Number(hotel.dayCount), declension)}`}
+                    {`${hotel.dayCount} ${num_word(
+                      Number(hotel.dayCount),
+                      declension
+                    )}`}
                   </p>
                   <div className="item__container">
                     <div className="item__stars">
@@ -187,7 +197,7 @@ export const HotelList: FC<IHotelList> = ({ isFavorites }) => {
 
               <div className="item__line"></div>
             </li>
-          ))) || <p className='favorites__list_empty'>Список пуст</p>}
+          ))) || <p className="favorites__list_empty">Список пуст</p>}
     </ul>
   );
 };
