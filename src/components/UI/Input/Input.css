@@ -21,11 +21,17 @@
   border: 1px solid #c9cacc;
   border-radius: 4px;
   margin-top: 7px;
-  padding: 0 0 0 15px;
+  padding: 0 15px 0 15px;
   color: #424242;
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;
+}
+
+.label__input::-webkit-calendar-picker-indicator {
+  background-image: url('../../../images/calendar-today.png');
+  width: 24px;
+  height: 24px;
 }
 
 .label__input_error {
