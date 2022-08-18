@@ -20,7 +20,7 @@ export const Select: FC<ISelect> = ({
       <div className="btn__select select">
         <svg
           className={`select__arrow ${
-            filter === 'asc' ? 'select__arrow_active' : ''
+            filter === 'desc' ? 'select__arrow_active' : ''
           }`}
           width="9"
           height="6"
@@ -35,7 +35,7 @@ export const Select: FC<ISelect> = ({
         </svg>
         <svg
           className={`select__arrow ${
-            filter === 'desc' ? 'select__arrow_active' : ''
+            filter === 'asc' ? 'select__arrow_active' : ''
           }`}
           width="9"
           height="7"
