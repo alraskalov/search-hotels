@@ -25,8 +25,6 @@ export const Input: FC<IInput> = ({
   name,
   type,
 }) => {
-  console.log(errors);
-
   return (
     <>
       <label
