@@ -4,7 +4,7 @@ import './Select.css';
 interface ISelect {
   children: ReactNode;
   btnValue: string;
-  filter: boolean;
+  filter: string;
   onSelectClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -19,7 +19,9 @@ export const Select: FC<ISelect> = ({
       {children}
       <div className="btn__select select">
         <svg
-          className={`select__arrow ${filter ? '' : 'select__arrow_desc'}`}
+          className={`select__arrow ${
+            filter === 'asc' ? 'select__arrow_active' : ''
+          }`}
           width="9"
           height="6"
           fill="none"
@@ -32,7 +34,9 @@ export const Select: FC<ISelect> = ({
           />
         </svg>
         <svg
-          className={`select__arrow ${filter ? 'select__arrow_asc' : ''}`}
+          className={`select__arrow ${
+            filter === 'desc' ? 'select__arrow_active' : ''
+          }`}
           width="9"
           height="7"
           viewBox="0 0 9 7"

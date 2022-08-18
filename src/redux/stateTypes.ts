@@ -16,8 +16,17 @@ export interface HotelsState {
   error: string | null;
 }
 
+export interface FilterState {
+  price: {
+    type: string;
+  };
+  stars: {
+    type: string;
+  };
+}
+
 export interface UserState {
   email: string;
   favoritesHotels: IHotel[];
-  appliedFilter: string[];
+  appliedFilter: FilterState;
 }

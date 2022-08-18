@@ -5,7 +5,14 @@ import { UserActions } from '../actions/userActions/types';
 const initialState: UserState = {
   email: '',
   favoritesHotels: [],
-  appliedFilter: [],
+  appliedFilter: {
+    price: {
+      type: '',
+    },
+    stars: {
+      type: '',
+    },
+  },
 };
 
 const getListsFromLocalStorage = (): IHotel[] => {
@@ -59,19 +66,6 @@ const sortDesc = (arr: IHotel[], type: string): IHotel[] => {
   }
 };
 
-const addFilterIfNotExists = (filter: string, appliedFilters: string[]): string [] => {
-  const index = appliedFilters.indexOf(filter);
-  if (index === -1) appliedFilters.push(filter);
-
-  return appliedFilters;
-};
-
-const removeFilter = (filter: string, appliedFilters: string[]): string[] => {
-  const index = appliedFilters.indexOf(filter);
-  appliedFilters.splice(index, 1);
-  return appliedFilters;
-};
-
 const userReducer = (state = initialState, action: UserActions): UserState => {
   const listsFromLocalStorage = getListsFromLocalStorage();
   const hotels: IHotel[] = [];
@@ -111,44 +105,54 @@ const userReducer = (state = initialState, action: UserActions): UserState => {
       };
     case userTypes.FILTER_BY_PRICE:
       sortedArr.push(
-        ...(action.payload.type
+        ...(state.appliedFilter.price.type === 'asc'
           ? sortAsc(state.favoritesHotels, 'price')
           : sortDesc(state.favoritesHotels, 'price'))
       );
-      state.favoritesHotels = sortedArr;
-      state.appliedFilter = addFilterIfNotExists(
-        userTypes.FILTER_BY_STARS,
-        state.appliedFilter
-      );
 
-      state.appliedFilter = removeFilter(
-        userTypes.FILTER_BY_PRICE,
-        state.appliedFilter
-      );
-
-      return state;
+      return {
+        ...state,
+        favoritesHotels: sortedArr,
+        appliedFilter: {
+          price: {
+            type: state.appliedFilter.price.type === 'asc' ? 'desc' : 'asc',
+          },
+          stars: {
+            type: state.appliedFilter.stars.type,
+          },
+        },
+      };
     case userTypes.FILTER_BY_STARS:
       sortedArr.push(
-        ...(action.payload.type
+        ...(state.appliedFilter.stars.type === 'asc'
           ? sortAsc(state.favoritesHotels, 'stars')
           : sortDesc(state.favoritesHotels, 'stars'))
       );
-      state.favoritesHotels = sortedArr;
-      state.appliedFilter = addFilterIfNotExists(
-        userTypes.FILTER_BY_STARS,
-        state.appliedFilter
-      );
-      state.appliedFilter = removeFilter(
-        userTypes.FILTER_BY_STARS,
-        state.appliedFilter
-      );
 
-      return state;
+      return {
+        ...state,
+        favoritesHotels: sortedArr,
+        appliedFilter: {
+          price: {
+            type: state.appliedFilter.price.type,
+          },
+          stars: {
+            type: state.appliedFilter.stars.type === 'asc' ? 'desc' : 'asc',
+          },
+        },
+      };
     case userTypes.USER_LOGOUT:
       return {
         email: '',
         favoritesHotels: [],
-        appliedFilter: [],
+        appliedFilter: {
+          price: {
+            type: '',
+          },
+          stars: {
+            type: '',
+          },
+        },
       };
     default:
       return {
