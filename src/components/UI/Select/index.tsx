@@ -1,5 +1,7 @@
 import { ReactNode, FC, MouseEvent } from 'react';
 import './Select.css';
+import { useDispatch } from 'react-redux';
+import { resetFilter } from '../../../redux/actions/userActions/userActions';
 
 interface ISelect {
   children: ReactNode;
@@ -14,8 +16,17 @@ export const Select: FC<ISelect> = ({
   btnValue,
   filter,
 }) => {
+  const dispatch = useDispatch();
+  const selectOnBlur = () => {
+    dispatch(resetFilter());
+  };
   return (
-    <button onClick={onSelectClick} value={btnValue} className="sort__btn btn">
+    <button
+      onBlur={selectOnBlur}
+      onClick={onSelectClick}
+      value={btnValue}
+      className="sort__btn btn"
+    >
       {children}
       <div className="btn__select select">
         <svg

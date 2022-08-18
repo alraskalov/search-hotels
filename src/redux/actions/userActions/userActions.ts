@@ -9,6 +9,7 @@ import {
   UserLogout,
   FilterByStars,
   FilterByPrice,
+  ResetFilter,
 } from './types';
 import { userTypes } from '../../constants';
 
@@ -45,4 +46,8 @@ export const filterByStars = (): FilterByStars => ({
 
 export const filterByPrice = (): FilterByPrice => ({
   type: userTypes.FILTER_BY_PRICE,
+});
+
+export const resetFilter = (): ResetFilter => ({
+  type: userTypes.RESET_FILTER,
 });

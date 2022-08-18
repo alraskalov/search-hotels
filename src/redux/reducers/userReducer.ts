@@ -141,6 +141,18 @@ const userReducer = (state = initialState, action: UserActions): UserState => {
           },
         },
       };
+    case userTypes.RESET_FILTER:
+      return {
+        ...state,
+        appliedFilter: {
+          price: {
+            type: '',
+          },
+          stars: {
+            type: '',
+          },
+        },
+      };
     case userTypes.USER_LOGOUT:
       return {
         email: '',

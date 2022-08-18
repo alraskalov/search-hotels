@@ -44,6 +44,10 @@ export type FilterByPrice = {
   type: typeof userTypes.FILTER_BY_PRICE;
 };
 
+export type ResetFilter = {
+  type: typeof userTypes.RESET_FILTER
+}
+
 export type UserActions =
   | LoadFavoriteHotels
   | SetFavoriteHotels
@@ -51,4 +55,5 @@ export type UserActions =
   | SetUser
   | UserLogout
   | FilterByPrice
-  | FilterByStars;
+  | FilterByStars
+  | ResetFilter;
