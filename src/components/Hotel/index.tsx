@@ -30,7 +30,7 @@ const settings = {
 
 const declension = ['отель', 'отеля', 'отелей'];
 
-export const Hotel: FC<IHotel> = () => {
+export const Hotel: FC<IHotel> = ({ children }) => {
   const { dateStart, location } = useSelector(
     (state: RootState) => state?.hotel
   );
@@ -88,7 +88,7 @@ export const Hotel: FC<IHotel> = () => {
           <span>{favoritesHotel.length}</span>
           {num_word(favoritesHotel.length, declension)}
         </h3>
-        <HotelList isFavorites={false} />
+        {children}
       </div>
     </section>
   );

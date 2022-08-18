@@ -18,7 +18,9 @@ export const Home: FC = () => {
         <FavoritesHotel>
           <HotelList isFavorites={true} />
         </FavoritesHotel>
-        <Hotel />
+        <Hotel>
+          <HotelList isFavorites={false} />
+        </Hotel>
       </main>
     </div>
   );
