@@ -1,4 +1,5 @@
 .search {
   grid-area: search;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  min-height: 406px;
 }

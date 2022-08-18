@@ -4,6 +4,8 @@
   padding: 0 14px 0 0;
   overflow: auto;
   height: 288px;
+  display: flex;
+  flex-direction: column;
 }
 .favorites__list::-webkit-scrollbar {
   width: 2px;

@@ -7,7 +7,6 @@ import hotel2 from '../../images/hotel-2.jpg';
 import hotel3 from '../../images/hotel-3.jpg';
 import hotel4 from '../../images/hotel-4.jpg';
 import hotel5 from '../../images/hotel-5.jpg';
-import { HotelList } from '../HotelList';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
 import { num_word, dateFormatting } from '../../utils/utils';
