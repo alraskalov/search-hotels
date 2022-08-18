@@ -10,7 +10,9 @@ interface IInput {
   children?: ReactNode;
   register: object;
   errors: {
-    [key: string]: any;
+    [key: string]: {
+      message?: string | undefined
+    }
   };
 }
 
@@ -23,6 +25,8 @@ export const Input: FC<IInput> = ({
   name,
   type,
 }) => {
+  console.log(errors);
+
   return (
     <>
       <label

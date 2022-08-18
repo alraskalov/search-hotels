@@ -19,7 +19,7 @@ const setListsToLocalStorage = (hotels: IHotel[]) => {
   localStorage.setItem('hotels', JSON.stringify(hotels));
 };
 
-const sortAsc = (arr: IHotel[], type: string) => {
+const sortAsc = (arr: IHotel[], type: string): IHotel[] => {
   if (type === 'price') {
     return arr.sort((curr, next) => {
       if (curr.priceAvg > next.priceAvg) return 1;
@@ -39,7 +39,7 @@ const sortAsc = (arr: IHotel[], type: string) => {
   }
 };
 
-const sortDesc = (arr: IHotel[], type: string) => {
+const sortDesc = (arr: IHotel[], type: string): IHotel[] => {
   if (type === 'price') {
     return arr.sort((curr, next) => {
       if (curr.priceAvg > next.priceAvg) return -1;
@@ -59,14 +59,14 @@ const sortDesc = (arr: IHotel[], type: string) => {
   }
 };
 
-const addFilterIfNotExists = (filter: string, appliedFilters: any[]) => {
+const addFilterIfNotExists = (filter: string, appliedFilters: string[]): string [] => {
   const index = appliedFilters.indexOf(filter);
   if (index === -1) appliedFilters.push(filter);
 
   return appliedFilters;
 };
 
-const removeFilter = (filter: string, appliedFilters: any[]) => {
+const removeFilter = (filter: string, appliedFilters: string[]): string[] => {
   const index = appliedFilters.indexOf(filter);
   appliedFilters.splice(index, 1);
   return appliedFilters;
@@ -77,7 +77,7 @@ const userReducer = (state = initialState, action: UserActions): UserState => {
   const hotels: IHotel[] = [];
   const result: IHotel[] = [];
 
-  const sortedArr: any[] = [];
+  const sortedArr: IHotel[] = [];
   switch (action.type) {
     case userTypes.SET_USER:
       return {
