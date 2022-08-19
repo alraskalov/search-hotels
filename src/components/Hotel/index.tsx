@@ -2,11 +2,6 @@ import { FC, ReactNode } from 'react';
 import { Carousel } from '../Carousel';
 import './Hotel.css';
 
-import hotel1 from '../../images/hotel-1.jpg';
-import hotel2 from '../../images/hotel-2.jpg';
-import hotel3 from '../../images/hotel-3.jpg';
-import hotel4 from '../../images/hotel-4.jpg';
-import hotel5 from '../../images/hotel-5.jpg';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers/rootReducer';
 import { num_word, dateFormatting } from '../../utils/utils';
@@ -34,8 +29,9 @@ export const Hotel: FC<IHotel> = ({ children }) => {
     (state: RootState) => state?.hotel
   );
   const favoritesHotel = useSelector(
-    (state: RootState) => state.user.favoritesHotels
+    (state: RootState) => state?.user?.favoritesHotels
   );
+  const hotelImage = useSelector((state: RootState) => state?.hotel?.image);
   const date = dateFormatting(dateStart);
 
   return (
@@ -65,21 +61,9 @@ export const Hotel: FC<IHotel> = ({ children }) => {
         <p className="hotel__start-date">{date != 'Invalid Date' && date}</p>
       </div>
       <Carousel settings={settings}>
-        <div className="slider__item">
-          <img className="slider__img" src={hotel1} alt="Отель" />
-        </div>
-        <div className="slider__item">
-          <img className="slider__img" src={hotel2} alt="Отель" />
-        </div>
-        <div className="slider__item">
-          <img className="slider__img" src={hotel3} alt="Отель" />
-        </div>
-        <div className="slider__item">
-          <img className="slider__img" src={hotel4} alt="Отель" />
-        </div>
-        <div className="slider__item">
-          <img className="slider__img" src={hotel5} alt="Отель" />
-        </div>
+        {hotelImage.map((img) => (
+            <img className="carousel__img" src={img} alt="Отель" />
+        ))}
       </Carousel>
       <div className="hotel__list list">
         <h3 className="list__title">

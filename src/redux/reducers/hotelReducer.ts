@@ -1,10 +1,16 @@
 import { hotelsTypes } from '../constants';
 import { HotelsState, IHotel } from '../stateTypes';
 import { HotelsActions } from '../actions/hotelActions/types';
+import hotel1 from '../../images/hotel-1.jpg';
+import hotel2 from '../../images/hotel-2.jpg';
+import hotel3 from '../../images/hotel-3.jpg';
+import hotel4 from '../../images/hotel-4.jpg';
+import hotel5 from '../../images/hotel-5.jpg';
 
 const initialState: HotelsState = {
   pending: false,
   hotels: [],
+  image: [hotel1, hotel2, hotel3, hotel4, hotel5],
   location: null,
   dateStart: new Date(),
   error: null,
