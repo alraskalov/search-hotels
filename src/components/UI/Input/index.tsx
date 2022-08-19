@@ -35,6 +35,7 @@ export const Input: FC<IInput> = ({
         {title}
         <input
           {...register}
+          autoComplete="off"
           className={`label__input ${errors[name] ? 'label__input_error' : ''}`}
           type={type}
         />
