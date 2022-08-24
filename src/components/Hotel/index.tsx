@@ -62,7 +62,9 @@ export const Hotel: FC<IHotel> = ({ children }) => {
       </div>
       <Carousel settings={settings}>
         {hotelImage.map((img) => (
+          <div className="slider__item">
             <img className="carousel__img" src={img} alt="Отель" />
+          </div>
         ))}
       </Carousel>
       <div className="hotel__list list">
